@@ -1,6 +1,6 @@
 const express = require("express");
 const Product = require("../models/Product");
-const { authMiddleware, verifyAdmin } = require("../middleware/authMiddleware");
+const { authMiddleware, verifyAdmin } = require("../middleware/authmiddleware");
 
 const router = express.Router();
 
@@ -9,7 +9,7 @@ router.post("/add", authMiddleware, verifyAdmin, async (req, res) => {
     try {
         const { name, description, price, category, stock, image } = req.body;
         console.log(image)
-        if (!name || !description || !price || !category) {
+        if (!name || !description || !price || !category) {x
             return res.status(400).json({ message: "All fields are required" });
         }
 
